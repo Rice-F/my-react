@@ -1,11 +1,10 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 // 函数类型组件
-export default function Welcome1 () {
+export function Welcome1 (props) {
   return (
     <div>
-      Welcome1
+      Welcome1, {props.name}
     </div>
   )
 }
@@ -13,6 +12,6 @@ export default function Welcome1 () {
 // 类组件
 export class Welcome2 extends React.Component{
   render(){
-    return <div>Welcome2</div>
+    return <div>Welcome2, {this.props.name}</div>
   }
 } 
