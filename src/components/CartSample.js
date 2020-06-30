@@ -11,7 +11,8 @@ export class CartSample extends React.Component{
         {id: 3, name: 'pc'},
         {id: 4, name: 'mobile'},
       ],
-      text: ''
+      text: '',
+      cart: []
     }
   }
 
@@ -19,13 +20,45 @@ export class CartSample extends React.Component{
     this.setState({text: evt.target.value})
   }
 
+  // 添加至商品列表
   addGood = () => {
     this.setState(prevState => {
       // 返回一个全新的要更新的数组，而不是在原数组上操作数据
       return {
-        goods: [...this.state.goods, {id: prevState.goods.length + 1, name: 'vue'}]
+        goods: [...this.state.goods, {id: prevState.goods.length + 1, name: prevState.text}]
       }
     })
+  }
+
+  // 添加至购物车
+  addCart = good => {
+    const newCart = [...this.state.cart]
+    const idx = newCart.findIndex(c => c.id === good.id)
+    const item = newCart[idx]
+    if(item) {
+      newCart.splice(idx, 1, {...item, count: item.count + 1})
+    }else {
+      newCart.push({...good, count: 1})
+    }
+    this.setState({cart: newCart})
+  }
+
+  // 购物车自减
+  minus = good => {
+    const newCart = [...this.state.cart]
+    const idx = newCart.findIndex(c => c.id === good.id)
+    const item = newCart[idx]
+    newCart.splice(idx, 1, {...item, count: item.count - 1})
+    this.setState({cart: newCart})
+  }
+  
+  // 购物车自增
+  add = good => {
+    const newCart = [...this.state.cart]
+    const idx = newCart.findIndex(c => c.id === good.id)
+    const item = newCart[idx]
+    newCart.splice(idx, 1, {...item, count: item.count + 1})
+    this.setState({cart: newCart})
   }
 
   render(){
@@ -41,9 +74,39 @@ export class CartSample extends React.Component{
           <button onClick={this.addGood}>添加</button>
         </div>
         <ul>
-          {this.state.goods.map(good => <li key={good.id}>{good.name}</li>)}
+          {this.state.goods.map(good => (
+            <li key={good.id}>
+              {good.name}
+              <button onClick={() => this.addCart(good)}>添加购物车</button>
+            </li>
+          ))}
         </ul>
+
+        {/* 购物车 */}
+        <Cart data={this.state.cart} minus={this.minus} add={this.add}></Cart>
       </div>
     )
   }
+}
+
+// 购物车组件
+function Cart ({data, minus, add}) {
+  return (
+    <div>
+      <table>
+        <tbody>
+            {data.map(d => (
+              <tr key={d.id}>
+                <td>{d.name}</td>
+                <td>
+                  <button onClick={() => minus(d)}>-</button>
+                  {d.count}
+                  <button onClick={() => add(d)}>+</button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  )
 }
