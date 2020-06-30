@@ -39,7 +39,7 @@ function App() {
       {/* <StateTest></StateTest> */}
 
       {/* 条件渲染 */}
-      <CartSample title="123"></CartSample>
+      <CartSample title="cart"></CartSample>
     </div>
   );
 }
