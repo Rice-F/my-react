@@ -62,17 +62,20 @@ export class CartSample extends React.Component{
   }
 
   render(){
-    // let title = this.props.title ? <h5>this.props.title</h5> : null
+    let title = this.props.title ? <h5>{this.props.title}</h5> : null
     return (
       <div>
         {/* 条件渲染 */}
+        {title}
         {this.props.title && <h5>{this.props.title}</h5>}
 
-        {/* 列表渲染 */}
+        {/* 输入框操作 */}
         <div>
           <input type="text" value={this.state.text} onChange={this.textChange}/>
           <button onClick={this.addGood}>添加</button>
         </div>
+        
+        {/* 列表渲染 */}
         <ul>
           {this.state.goods.map(good => (
             <li key={good.id}>
