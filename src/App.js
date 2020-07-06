@@ -6,7 +6,9 @@ import './App.css';
 // import {Clock} from './components/Clock'
 // import {StateTest} from './components/StateTest'
 // import {CartSample} from './components/CartSample'
-import {Lifecycle} from './components/Lifecycle'
+// import {Lifecycle} from './components/Lifecycle'
+// import {AntdTest} from './components/AntdTest'
+import {CommentList} from './components/CommentList'
 
 // let jsx = <p>hello,react</p>
  
@@ -58,7 +60,12 @@ class App extends React.Component {
         {/* <CartSample title="this is cartsample title"></CartSample> */}
   
         {/* 生命周期 */}
-        {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>}
+        {/* {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>} */}
+
+        {/* Antd */}
+        {/* <AntdTest></AntdTest> */}
+
+        <CommentList></CommentList>
       </div>
     );
   }
