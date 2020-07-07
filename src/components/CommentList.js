@@ -39,6 +39,15 @@ export class CommentList extends React.Component {
 }
 
 class Comment extends React.Component {
+
+  shouldComponentUpdate (nextProps) {
+    if(nextProps.data.body === this.props.data.body &&
+      nextProps.data.author === this.props.data.author) {
+        return false;
+    }
+    return true;
+  }
+
   render () {
     // 打印2次render
     // 首次加载组件执行一次，当父组件componentDidMount中修改comments，父组件state发生变化又执行一次
