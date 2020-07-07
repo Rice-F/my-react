@@ -20,6 +20,7 @@ class App extends React.Component {
   // const USER = {firstName: 'tom', lastName: 'jerry'}
 
   constructor (props) {
+    // console.log('App constructor')
     super(props);
     this.state = {
       lifeProp: 'this is life prop'
@@ -27,13 +28,14 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({lifeProp: 'a new prop'})
-    setTimeout(() => {
-      this.setState({lifeProp: ''})
-    }, 2000)
+    // this.setState({lifeProp: 'a new prop'})
+    // setTimeout(() => {
+    //   this.setState({lifeProp: ''})
+    // }, 2000)
   }
 
   render () {
+    // console.log('App render')
     return (
       <div className="App">
         {/* 表达式 */}
@@ -65,6 +67,7 @@ class App extends React.Component {
         {/* Antd */}
         {/* <AntdTest></AntdTest> */}
 
+        {/* 容器组件 */}
         <CommentList></CommentList>
       </div>
     );
