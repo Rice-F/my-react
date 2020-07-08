@@ -64,7 +64,7 @@ class Comment extends React.Component {
 }
 
 // 避免组件频繁更新2 - PureComponent 
-// PureComponent内置shouldComponentUpdate只做浅比较
+// 更换继承类为PureComponent，PureComponent内置shouldComponentUpdate只做浅比较
 // 避免对象传值，对象传值yeoman特别留心引用的问题，尽量传数值类型的数据
 // class Comment extends React.PureComponent {
 //   render () {
@@ -79,8 +79,9 @@ class Comment extends React.Component {
 //   }
 // }
 
-// 避免组件频繁更新3 - React.memo 
-// 类似PureComponent只做浅比较
+// 避免组件频繁更新3 - React.memo v16.6.0后的版本
+// 类似PureComponent只做浅比较，解决了函数型组件没有PureComponent功能的问题
+// 高阶组件是一个函数，接收一个组件返回一个新组件
 // const Comment = React.memo(function (props) {
 //   // 打印2次
 //   console.log('Comment render')
