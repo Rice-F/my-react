@@ -8,7 +8,8 @@ import './App.css';
 // import {CartSample} from './components/CartSample'
 // import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
-import {CommentList} from './components/CommentList'
+// import {CommentList} from './components/CommentList'
+import {Hoc} from './components/Hoc'
 
 // let jsx = <p>hello,react</p>
  
@@ -68,7 +69,9 @@ class App extends React.Component {
         {/* <AntdTest></AntdTest> */}
 
         {/* 容器组件 */}
-        <CommentList></CommentList>
+        {/* <CommentList></CommentList> */}
+
+        <Hoc></Hoc>
       </div>
     );
   }
