@@ -10,7 +10,7 @@ import './App.css';
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
-import {WelcomeDialog}
+// import {Composition} from './components/Composition'
 
 // let jsx = <p>hello,react</p>
  
@@ -75,6 +75,9 @@ class App extends React.Component {
 
         {/* 高阶组件 */}
         {/* <Hoc></Hoc> */}
+
+        {/* 复合组件 */}
+        {/* <Composition></Composition> */}
       </div>
     );
   }

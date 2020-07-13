@@ -36,7 +36,6 @@ class Lesson extends React.Component{
       </div>
     )
   }
-
 }
 
 // 高阶组件链式调用
