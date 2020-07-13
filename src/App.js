@@ -9,7 +9,8 @@ import './App.css';
 // import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
-import {Hoc} from './components/Hoc'
+// import {Hoc} from './components/Hoc'
+import {WelcomeDialog}
 
 // let jsx = <p>hello,react</p>
  
@@ -29,6 +30,7 @@ class App extends React.Component {
   }
 
   componentDidMount () {
+    // console.log('App didmount')
     // this.setState({lifeProp: 'a new prop'})
     // setTimeout(() => {
     //   this.setState({lifeProp: ''})
@@ -71,7 +73,8 @@ class App extends React.Component {
         {/* 容器组件 */}
         {/* <CommentList></CommentList> */}
 
-        <Hoc></Hoc>
+        {/* 高阶组件 */}
+        {/* <Hoc></Hoc> */}
       </div>
     );
   }

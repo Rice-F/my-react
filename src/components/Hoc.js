@@ -1,11 +1,6 @@
 import React from 'react'
 
-function Lesson (props) {
-  return (
-    <div>{props.stage} - {props.name}</div>
-  )
-}
-
+// 高阶组件：接收一个组件，返回一个新的组件
 const hocComponent = Comp => {
   // 获取name
   let name = "hoc"
@@ -15,7 +10,7 @@ const hocComponent = Comp => {
 
   return class extends React.Component {
     componentDidMount () {
-      console.log('do')
+      // console.log('hoc didmount')
     }
 
     render () {
@@ -29,14 +24,30 @@ const withLog = Comp => {
   return props => <Comp {...props}></Comp>
 }
 
+
+@withLog
+@hocComponent
+@withLog
+class Lesson extends React.Component{
+  render () {
+    return (
+      <div>
+        {this.props.stage} - {this.props.name}
+      </div>
+    )
+  }
+
+}
+
 // 高阶组件链式调用
-const NewLesson = withLog(hocComponent(withLog(Lesson)));
+// const NewLesson = withLog(hocComponent(withLog(Lesson)));
 
 export class Hoc extends React.Component {
   render () {
     return (
       <div>
-        <NewLesson stage="React"></NewLesson>
+        {/* <NewLesson stage="React"></NewLesson> */}
+        <Lesson stage="React"></Lesson>
       </div>
     )
   }
