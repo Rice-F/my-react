@@ -9,6 +9,7 @@ const hocComponent = Comp => {
   // return props => <Comp {...props} name={name}></Comp>
 
   return class extends React.Component {
+
     componentDidMount () {
       // console.log('hoc didmount')
     }
@@ -19,10 +20,10 @@ const hocComponent = Comp => {
   }
 }
 
-const withLog = Comp => {
-  console.log(`${Comp.name}渲染了`)
-  return props => <Comp {...props}></Comp>
-}
+// const withLog = Comp => {
+//   console.log(`${Comp.name}渲染了`)
+//   return props => <Comp {...props}></Comp>
+// }
 
 
 @withLog

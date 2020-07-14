@@ -25,15 +25,17 @@ class App extends React.Component {
     // console.log('App constructor')
     super(props);
     this.state = {
-      lifeProp: 'this is life prop'
+      lifeProp: 'this is life prop',
+      list: []
     }
   }
 
   componentDidMount () {
     // console.log('App didmount')
     // this.setState({lifeProp: 'a new prop'})
+    // // this.setState({list: [1,2,3]})
     // setTimeout(() => {
-    //   this.setState({lifeProp: ''})
+    //   this.setState({list: [1,2,3]})
     // }, 2000)
   }
 
@@ -71,7 +73,7 @@ class App extends React.Component {
         {/* <AntdTest></AntdTest> */}
 
         {/* 容器组件 */}
-        {/* <CommentList></CommentList> */}
+        {/* <CommentList title={this.state.lifeProp}></CommentList> */}
 
         {/* 高阶组件 */}
         {/* <Hoc></Hoc> */}

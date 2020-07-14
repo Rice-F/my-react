@@ -2,7 +2,7 @@ import React from 'react'
 
 export class CommentList extends React.Component {
   constructor(props) {
-    // console.log('CommentList constructor')
+    console.log('CommentList constructor')
     super(props)
     this.state = {
       comments: [],
@@ -11,14 +11,14 @@ export class CommentList extends React.Component {
   }
 
   componentDidMount () {
-    setInterval(() => {
-      this.setState({
-        comments: [
-          {body: 'react is very good', author: 'facebook'},
-          {body: 'vue is very good', author: 'youyuxi'}
-        ]
-      })
-    }, 1000)
+    // setInterval(() => {
+    //   this.setState({
+    //     comments: [
+    //       {body: 'react is very good', author: 'facebook'},
+    //       {body: 'vue is very good', author: 'youyuxi'}
+    //     ]
+    //   })
+    // }, 1000)
     // this.setState({
     //   comments: [
     //     {body: 'react is very good', author: 'facebook'},
@@ -28,40 +28,41 @@ export class CommentList extends React.Component {
   }
 
   render () {
-    // console.log('CommentList render')
+    console.log('CommentList render')
     return (
       <div>
-        {this.state.comments.map((c, i) => (
+        {/* {this.state.comments.map((c, i) => (
           // 这里扩展相当于： <Comment key={i} body={c.body} author={c.author}></Comment>
           <Comment key={i} {...c}></Comment>
-        ))}
+        ))} */}
+        {this.props.title}
       </div>
     )
   }
 }
 
 // 避免组件频繁更新1 - shouldComponentUpdate
-class Comment extends React.Component {
+// class Comment extends React.Component {
 
-  shouldComponentUpdate (nextProps) {
-    if(nextProps.body === this.props.body &&
-      nextProps.author === this.props.author) {
-        return false;
-    }
-    return true;
-  }
+//   shouldComponentUpdate (nextProps) {
+//     if(nextProps.body === this.props.body &&
+//       nextProps.author === this.props.author) {
+//         return false;
+//     }
+//     return true;
+//   }
 
-  render () {
-    // 打印4次
-    console.log('Comment render')
-    return (
-      <div>
-        <p>{this.props.body}</p>
-        <p>-- {this.props.author}</p>
-      </div>
-    )
-  }
-}
+//   render () {
+//     // 打印4次
+//     console.log('Comment render')
+//     return (
+//       <div>
+//         <p>{this.props.body}</p>
+//         <p>-- {this.props.author}</p>
+//       </div>
+//     )
+//   }
+// }
 
 // 避免组件频繁更新2 - PureComponent 
 // 更换继承类为PureComponent，PureComponent内置shouldComponentUpdate只做浅比较
