@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 // 组件导入
+// import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
 // import {Welcome1, Welcome2}  from './components/CompType'
 // import {Clock} from './components/Clock'
 // import {StateTest} from './components/StateTest'
@@ -10,7 +11,7 @@ import './App.css';
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
-// import {Composition} from './components/Composition'
+import Composition from './components/Composition'
 
 // let jsx = <p>hello,react</p>
  
@@ -79,7 +80,7 @@ class App extends React.Component {
         {/* <Hoc></Hoc> */}
 
         {/* 复合组件 */}
-        {/* <Composition></Composition> */}
+        <Composition></Composition>
       </div>
     );
   }

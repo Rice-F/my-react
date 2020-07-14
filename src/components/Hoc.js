@@ -20,10 +20,10 @@ const hocComponent = Comp => {
   }
 }
 
-// const withLog = Comp => {
-//   console.log(`${Comp.name}渲染了`)
-//   return props => <Comp {...props}></Comp>
-// }
+const withLog = Comp => {
+  console.log(`${Comp.name}渲染了`)
+  return props => <Comp {...props}></Comp>
+}
 
 
 @withLog
