@@ -50,6 +50,28 @@ function Filter (props) {
   )
 }
 
+// 修改children
+function RadioGroup (props) {
+  return (
+    <div>
+      {React.Children.map(props.children, child => {
+        // vdom不可更改，必须先clone一个再做更改
+        // child.props.name = props.name
+        return React.cloneElement(child, {name:props.name})
+      })}
+    </div>
+  )
+}
+
+function Radio ({children, ...rest}) {
+  return (
+    <label>
+      <input type="radio" {...rest}></input>
+      {children}
+    </label>
+  )
+}
+
 export default function () {
   // let footer = <button onClick={() => {alert('confirm')}}>this is footer</button>
   return (
@@ -68,6 +90,12 @@ export default function () {
         <h5>eae</h5>
         <p>this is p</p>
       </Filter>
+
+      <RadioGroup name="mvvm">
+        <Radio value="vue">vue</Radio>
+        <Radio value="react">react</Radio>
+        <Radio value="angular">angular</Radio>
+      </RadioGroup>
     </div>
   )
 }
