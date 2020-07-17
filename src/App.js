@@ -12,7 +12,9 @@ import './App.css';
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
 // import Composition from './components/Composition'
-import HocTest from './components/HocTest'
+// import HocTest from './components/HocTest'
+// import ContextTest from './components/ContextTest'
+import SForm from './components/SForm'
 
 // let jsx = <p>hello,react</p>
  
@@ -83,7 +85,14 @@ class App extends React.Component {
         {/* 复合组件 */}
         {/* <Composition></Composition> */}
 
-        <HocTest></HocTest>
+        {/* 函数组件Hook */}
+        {/* <HocTest></HocTest> */}
+
+        {/* Context */}
+        {/* <ContextTest></ContextTest> */}
+
+        {/* SForm */}
+        <SForm></SForm>
       </div>
     );
   }
