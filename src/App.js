@@ -11,7 +11,8 @@ import './App.css';
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
-import Composition from './components/Composition'
+// import Composition from './components/Composition'
+import HocTest from './components/HocTest'
 
 // let jsx = <p>hello,react</p>
  
@@ -80,7 +81,9 @@ class App extends React.Component {
         {/* <Hoc></Hoc> */}
 
         {/* 复合组件 */}
-        <Composition></Composition>
+        {/* <Composition></Composition> */}
+
+        <HocTest></HocTest>
       </div>
     );
   }
