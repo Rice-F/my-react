@@ -9,13 +9,52 @@ function SFormCreate (Comp) {
 
     constructor(props) {
       super(props);
+      // 验证规则、校验
       this.options = {};
       this.state = {};
     }
 
     handleChange = (e) => {
       const {name, value} = e.target
-      this.setState({[name]: value})
+      console.log(name, value)
+      this.setState({[name]: value}, () => {
+        // 确保值发生变化再校验
+        this.validateField(name)
+      })
+    }
+
+    // 校验单个项
+    validateField = field => {
+      // 1.获取校验规则
+      const rules = this.options[field].rules;
+      // 2.校验规则中任意一项失败，则返回false
+      const ret = !rules.some(rule => {
+        if(rule.required) {
+          if(!this.state[field]) {
+            // 校验失败
+            this.setState({
+              [field + 'Message']: rule.message
+            })
+            return true;
+          }
+        }
+      })
+      if(ret) {
+        // 校验成功
+        this.setState({
+          [field + 'Message']: ''
+        })
+      }
+      return ret;
+    }
+
+    // 校验所有项
+    validate = cb => {
+      const rets = Object.keys(this.options).map(field => {
+        this.validateField(field)
+      })
+      const ret = rets.every(item => item === true)
+      cb(ret, this.state)
     }
 
     // 创建input包装器
@@ -29,24 +68,49 @@ function SFormCreate (Comp) {
             value: this.state[field] || '',
             onChange: this.handleChange
           })}
+          {/* 校验的错误信息 */}
+          {this.state[field + 'Message'] && (
+            <p style={{color: 'red'}}>{this.state[field + 'Message']}</p>
+          )}
         </div>
       )
     }
 
     render () {
-      return <Comp getFieldDec={this.getFieldDec}></Comp>
+      return <Comp getFieldDec={this.getFieldDec} validate={this.validate}></Comp>
     }
   }
 }
 
 @SFormCreate
 class SForm extends React.Component {
+  onSubmit  = () => {
+    // 校验所有项
+    this.props.validate((isValid, data) => {
+      if(isValid) {
+        // 提交
+        console.log('登录', data)
+      }else {
+        alert('校验失败')
+      }
+    })
+  }
+
   render () {
     const {getFieldDec} = this.props
     return (
       <div>
-        <Input></Input>
-        <Button>login</Button>
+        {getFieldDec("uname", {
+          rules: [{required: true, msg: '用户名必填'}]
+          }
+        )(<Input></Input>)}
+
+        {getFieldDec("pwd", {
+          rules: [{required: true, msg: '密码必填'}]
+          }
+        )(<Input type="password"></Input>)}
+
+        <Button onClick={this.onSubmit}>login</Button>
       </div>
     )
   }
