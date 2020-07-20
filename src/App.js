@@ -14,7 +14,8 @@ import './App.css';
 // import Composition from './components/Composition'
 // import HocTest from './components/HocTest'
 // import ContextTest from './components/ContextTest'
-import SForm from './components/SForm'
+// import SForm from './components/SForm'
+import ReduxTest from './components/ReduxTest'
 
 // let jsx = <p>hello,react</p>
  
@@ -92,7 +93,10 @@ class App extends React.Component {
         {/* <ContextTest></ContextTest> */}
 
         {/* SForm */}
-        <SForm></SForm>
+        {/* <SForm></SForm> */}
+
+        {/* Redux */}
+        <ReduxTest></ReduxTest>
       </div>
     );
   }
