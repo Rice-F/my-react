@@ -1,20 +1,24 @@
 import React from 'react';
 // import store from '../store';
 import {connect} from 'react-redux';
+import {add, minus, asyncAdd} from '../store/count.redux'
 
 // 映射函数
-const mapStateToProps = state => ({num: state});
-const mapDispatchToProps = {
-  add: () => ({type: 'add'}),
-  minus: () => ({type: 'minus'}),
-  // asyncAdd方法return一个方法
-  asyncAdd: () => dispatch => {
-    // 异步操作
-    setTimeout(()=> {
-      dispatch({type: 'add'})
-    },1500)
-  }
-}
+const mapStateToProps = state => ({num: state.counter});
+// const mapDispatchToProps = {
+//   add: () => ({type: 'add'}),
+//   minus: () => ({type: 'minus'}),
+//   // asyncAdd方法return一个方法
+//   asyncAdd: () => dispatch => {
+//     // 异步操作
+//     setTimeout(()=> {
+//       dispatch({type: 'add'})
+//     },1500)
+//   }
+// }
+
+// count.redux之后
+const mapDispatchToProps = {add, minus, asyncAdd}
 
 // function写法：将props解构出来
 // function ReduxTest ({num, add, minus}) {
