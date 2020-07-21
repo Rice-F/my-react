@@ -1,6 +1,9 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import store from './store'
+import {Provider} from 'react-redux'
+
 // 组件导入
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
 // import {Welcome1, Welcome2}  from './components/CompType'
@@ -96,7 +99,10 @@ class App extends React.Component {
         {/* <SForm></SForm> */}
 
         {/* Redux */}
-        <ReduxTest></ReduxTest>
+        {/* 上下文的形式隔代传递数据 */}
+        <Provider store={store}>
+          <ReduxTest></ReduxTest>
+        </Provider>
       </div>
     );
   }
