@@ -1,8 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import store from './store'
-import {Provider} from 'react-redux'
+// import store from './store'
+// import {Provider} from 'react-redux'
 
 // 组件导入
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
@@ -18,7 +18,8 @@ import {Provider} from 'react-redux'
 // import HocTest from './components/HocTest'
 // import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
-import ReduxTest from './components/ReduxTest'
+// import ReduxTest from './components/ReduxTest'
+import RouteSample from './components/RouteSample'
 
 // let jsx = <p>hello,react</p>
  
@@ -100,9 +101,12 @@ class App extends React.Component {
 
         {/* Redux */}
         {/* 上下文的形式隔代传递数据 */}
-        <Provider store={store}>
+        {/* <Provider store={store}>
           <ReduxTest></ReduxTest>
-        </Provider>
+        </Provider> */}
+
+        {/* router */}
+        <RouteSample></RouteSample>
       </div>
     );
   }
