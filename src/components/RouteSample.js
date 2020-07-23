@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
+import {connect} from 'react-redux';
+import {login} from '../store/user.redux'
 
 function Home() {
   return <div>
@@ -51,23 +53,51 @@ function NoMatch ({location}) {
 }
 
 // 路由守卫
-function PrivateRoute ({component: Comp, isLogin, ...rest}) {
-  return (
-    // render 根据条件动态渲染组件
-    <Route
-      {...rest}
-      render={
-        props => isLogin ? <Comp></Comp> : <Redirect to={{pathname: "/login", redirect: props.location.pathname}}></Redirect>
-      }
-    >
-    </Route>
-  )
-}
+const PrivateRoute = connect(
+  state => ({isLogin: state.user.isLogin})
+)(
+  ({component: Comp, isLogin, ...rest}) => {
+    return (
+      // render 根据条件动态渲染组件
+      <Route
+        {...rest}
+        render={
+          props => isLogin ? 
+          (<Comp></Comp>) : 
+          (<Redirect
+            to={{pathname: "/login", state: {redirect: props.location.pathname}}}
+          ></Redirect>)
+        }
+      >
+      </Route>
+    )
+  }
+)
 
 // 登录组件
-function Login () {
-
-}
+const Login = connect(
+  state => ({
+    isLogin: state.user.isLogin,
+    loading: state.user.loading
+  }),
+  {login}
+)(
+  ({location, isLogin, login, loading}) => {
+    const redirect = location.state.redirect || '/'
+    if(isLogin) {
+      return <Redirect to={redirect}></Redirect>
+    }
+    return (
+      <div>
+        <p>用户登录</p>
+        <hr/>
+        <button onClick={login} disabled={loading}>
+          {loading ? 'login...' : 'login'}
+        </button>
+      </div>
+    )
+  }
+)
 
 export default function RouteSample () {
   return (
@@ -82,8 +112,10 @@ export default function RouteSample () {
           {/* 使用exact配置项或者Switch组件，都可以避免展示包容式路由 */}
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route path="/about" component={About}></Route>
+            {/* 路由守卫 */}
+            <PrivateRoute path="/about" component={About}></PrivateRoute>
             <Route path="/detail/:lesson" component={Detail}></Route>
+            <Route path="/login" component={Login}></Route>
             {/* 404页面没有path */}
             <Route component={NoMatch}></Route>
           </Switch>
