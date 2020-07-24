@@ -1,6 +1,8 @@
 import React from 'react';
 
 export class Clock extends React.Component{
+
+  // 组件状态
   state = {
     date: new Date()
   }
@@ -21,6 +23,7 @@ export class Clock extends React.Component{
   render(){
     return (
       <div>
+        {/* 输出当前组件某个状态的值 */}
         {this.state.date.toLocaleTimeString()}
       </div>
     )

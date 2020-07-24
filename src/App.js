@@ -8,7 +8,7 @@ import './App.css';
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
 // import {Welcome1, Welcome2}  from './components/CompType'
 // import {Clock} from './components/Clock'
-// import {StateTest} from './components/StateTest'
+import {StateTest} from './components/StateTest'
 // import {CartSample} from './components/CartSample'
 // import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
@@ -72,7 +72,7 @@ class App extends React.Component {
         {/* <Clock></Clock> */}
   
         {/* state与setState的使用tip */}
-        {/* <StateTest></StateTest> */}
+        <StateTest></StateTest>
   
         {/* 条件渲染 */}
         {/* <CartSample title="this is cartsample title"></CartSample> */}

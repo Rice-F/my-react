@@ -1,6 +1,7 @@
 import React from 'react';
 
 export class CartSample extends React.Component{
+  
   // 状态state初始化一般放在构造器中
   constructor (props) {
     super(props);
