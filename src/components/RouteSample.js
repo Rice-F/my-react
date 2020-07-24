@@ -114,6 +114,7 @@ export default function RouteSample () {
             <Route exact path="/" component={Home}></Route>
             {/* 路由守卫 */}
             <PrivateRoute path="/about" component={About}></PrivateRoute>
+            {/* <Route path="/about" component={About}></Route> */}
             <Route path="/detail/:lesson" component={Detail}></Route>
             <Route path="/login" component={Login}></Route>
             {/* 404页面没有path */}

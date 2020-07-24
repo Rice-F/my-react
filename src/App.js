@@ -19,16 +19,14 @@ import './App.css';
 // import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
 // import ReduxTest from './components/ReduxTest'
-import RouteSample from './components/RouteSample'
+// import RouteSample from './components/RouteSample'
 
-// let jsx = <p>hello,react</p>
+
  
-// function formatName (user) {
-//   return `${user.firstName},${user.lastName}`
-// }
+function formatName (user) {
+  return `${user.firstName},${user.lastName}`
+}
 class App extends React.Component {
-  // const NAME = 'jerry'
-  // const USER = {firstName: 'tom', lastName: 'jerry'}
 
   constructor (props) {
     // console.log('App constructor')
@@ -50,17 +48,21 @@ class App extends React.Component {
 
   render () {
     // console.log('App render')
+    const name = 'jerry'
+    const USER = {firstName: 'tom', lastName: 'jerry'}
+    let jsx = <p>hello,react</p>
+
     return (
       <div className="App">
         {/* 表达式 */}
-        {/* <h1>{NAME}</h1> */}
-        {/* <h2>{formatName(USER)}</h2> */}
+        <h1>{name}</h1>
+        <h2>{formatName(USER)}</h2>
   
         {/* 属性 */}
         {/* <img src={logo} style={{width: '200px'}} alt="" /> */}
   
         {/* jsx也是表达式 */}
-        {/* {jsx} */}
+        {jsx}
   
         {/* 组件使用 */}
         {/* <Welcome1 name="name1"></Welcome1> */}
@@ -106,7 +108,7 @@ class App extends React.Component {
         </Provider> */}
 
         {/* router */}
-        <RouteSample></RouteSample>
+        {/* <RouteSample></RouteSample> */}
       </div>
     );
   }
