@@ -8,8 +8,8 @@ import './App.css';
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
 // import {Welcome1, Welcome2}  from './components/CompType'
 // import {Clock} from './components/Clock'
-import {StateTest} from './components/StateTest'
-// import {CartSample} from './components/CartSample'
+// import {StateTest} from './components/StateTest' 
+import {CartSample} from './components/CartSample'
 // import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
@@ -48,21 +48,21 @@ class App extends React.Component {
 
   render () {
     // console.log('App render')
-    const name = 'jerry'
-    const USER = {firstName: 'tom', lastName: 'jerry'}
-    let jsx = <p>hello,react</p>
+    // const name = 'jerry'
+    // const USER = {firstName: 'tom', lastName: 'jerry'}
+    // let jsx = <p>hello,react</p>
 
     return (
       <div className="App">
         {/* 表达式 */}
-        <h1>{name}</h1>
-        <h2>{formatName(USER)}</h2>
+        {/* <h1>{name}</h1> */}
+        {/* <h2>{formatName(USER)}</h2> */}
   
         {/* 属性 */}
         {/* <img src={logo} style={{width: '200px'}} alt="" /> */}
   
         {/* jsx也是表达式 */}
-        {jsx}
+        {/* {jsx} */}
   
         {/* 组件使用 */}
         {/* <Welcome1 name="name1"></Welcome1> */}
@@ -72,10 +72,10 @@ class App extends React.Component {
         {/* <Clock></Clock> */}
   
         {/* state与setState的使用tip */}
-        <StateTest></StateTest>
+        {/* <StateTest></StateTest> */}
   
         {/* 条件渲染 */}
-        {/* <CartSample title="this is cartsample title"></CartSample> */}
+        <CartSample title="this is cartsample title"></CartSample>
   
         {/* 生命周期 */}
         {/* {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>} */}

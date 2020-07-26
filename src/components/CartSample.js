@@ -17,6 +17,7 @@ export class CartSample extends React.Component{
     }
   }
 
+  // 这里一定要写成箭头函数，因为这里的方法在调用时会影响this指向
   textChange = (evt) => {
     this.setState({text: evt.target.value})
   }
@@ -72,6 +73,7 @@ export class CartSample extends React.Component{
 
         {/* 输入框操作 */}
         <div>
+          {/* 这里注意赋值给绑定事件的方法一定不能写成this.textChange()，这样就表示立即调用了，其实这里需要的是个方法体 */}
           <input type="text" value={this.state.text} onChange={this.textChange}/>
           <button onClick={this.addGood}>添加</button>
         </div>
@@ -81,12 +83,15 @@ export class CartSample extends React.Component{
           {this.state.goods.map(good => (
             <li key={good.id}>
               {good.name}
+              {/* 事件绑定：不需要传参时，像课程列表的添加事件，只需要传一个函数体就可以了 */}
+              {/* 事件绑定：需要传参时，将绑定事件写成一个箭头函数，在函数中执行绑定的方法并传参 */}
               <button onClick={() => this.addCart(good)}>添加购物车</button>
             </li>
           ))}
         </ul>
 
         {/* 购物车 */}
+        {/* 和Vue不同的是，react中子组件尽可能的只做数据展示，不做数据管理及事件操作，有需要事件操作的通知父组件进行操作 */}
         <Cart data={this.state.cart} minus={this.minus} add={this.add}></Cart>
       </div>
     )
