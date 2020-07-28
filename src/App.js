@@ -9,12 +9,12 @@ import './App.css';
 // import {Welcome1, Welcome2}  from './components/CompType'
 // import {Clock} from './components/Clock'
 // import {StateTest} from './components/StateTest' 
-import {CartSample} from './components/CartSample'
+// import {CartSample} from './components/CartSample'
 // import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
-// import Composition from './components/Composition'
+import Composition from './components/Composition'
 // import HocTest from './components/HocTest'
 // import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
@@ -23,9 +23,9 @@ import {CartSample} from './components/CartSample'
 
 
  
-function formatName (user) {
-  return `${user.firstName},${user.lastName}`
-}
+// function formatName (user) {
+//   return `${user.firstName},${user.lastName}`
+// }
 class App extends React.Component {
 
   constructor (props) {
@@ -75,7 +75,7 @@ class App extends React.Component {
         {/* <StateTest></StateTest> */}
   
         {/* 条件渲染 */}
-        <CartSample title="this is cartsample title"></CartSample>
+        {/* <CartSample title="this is cartsample title"></CartSample> */}
   
         {/* 生命周期 */}
         {/* {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>} */}
@@ -85,12 +85,13 @@ class App extends React.Component {
 
         {/* 容器组件 */}
         {/* <CommentList title={this.state.lifeProp}></CommentList> */}
+        {/* <CommentList></CommentList> */}
 
         {/* 高阶组件 */}
         {/* <Hoc></Hoc> */}
 
         {/* 复合组件 */}
-        {/* <Composition></Composition> */}
+        <Composition></Composition>
 
         {/* 函数组件Hook */}
         {/* <HocTest></HocTest> */}
