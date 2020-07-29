@@ -14,9 +14,9 @@ import './App.css';
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
-import Composition from './components/Composition'
-// import HocTest from './components/HocTest'
-// import ContextTest from './components/ContextTest'
+// import Composition from './components/Composition'
+// import HookTest from './components/HookTest'
+import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
 // import ReduxTest from './components/ReduxTest'
 // import RouteSample from './components/RouteSample'
@@ -91,13 +91,13 @@ class App extends React.Component {
         {/* <Hoc></Hoc> */}
 
         {/* 复合组件 */}
-        <Composition></Composition>
+        {/* <Composition></Composition> */}
 
         {/* 函数组件Hook */}
-        {/* <HocTest></HocTest> */}
+        {/* <HookTest></HookTest> */}
 
         {/* Context */}
-        {/* <ContextTest></ContextTest> */}
+        <ContextTest></ContextTest>
 
         {/* SForm */}
         {/* <SForm></SForm> */}
