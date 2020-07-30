@@ -16,8 +16,9 @@ import './App.css';
 // import {Hoc} from './components/Hoc'
 // import Composition from './components/Composition'
 // import HookTest from './components/HookTest'
-import ContextTest from './components/ContextTest'
+// import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
+import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
 // import RouteSample from './components/RouteSample'
 
@@ -97,10 +98,11 @@ class App extends React.Component {
         {/* <HookTest></HookTest> */}
 
         {/* Context */}
-        <ContextTest></ContextTest>
+        {/* <ContextTest></ContextTest> */}
 
         {/* SForm */}
         {/* <SForm></SForm> */}
+        <CopyAntdForm></CopyAntdForm>
 
         {/* Redux */}
         {/* 上下文的形式隔代传递数据 */}
