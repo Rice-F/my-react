@@ -16,7 +16,7 @@ function SFormCreate (Comp) {
 
     handleChange = (e) => {
       const {name, value} = e.target
-      console.log(name, value)
+      // name属性是动态的
       this.setState({[name]: value}, () => {
         // 确保值发生变化再校验
         this.validateField(name)
@@ -59,9 +59,12 @@ function SFormCreate (Comp) {
 
     // 创建input包装器
     getFieldDec = (field, option) => {
+
       // 保存当前输入项配置，验证规则
       this.options[field] = option
+      
       return InputComp => (
+        // InputComp是虚拟DOM，扩展的时候不能直接修改原组件，要clone出新组件扩展
         <div>
           {React.cloneElement(InputComp, {
             name: field,

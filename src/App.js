@@ -17,7 +17,7 @@ import './App.css';
 // import Composition from './components/Composition'
 // import HookTest from './components/HookTest'
 // import ContextTest from './components/ContextTest'
-// import SForm from './components/SForm'
+import SForm from './components/SForm'
 import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
 // import RouteSample from './components/RouteSample'
@@ -101,7 +101,7 @@ class App extends React.Component {
         {/* <ContextTest></ContextTest> */}
 
         {/* SForm */}
-        {/* <SForm></SForm> */}
+        <SForm></SForm>
         <CopyAntdForm></CopyAntdForm>
 
         {/* Redux */}
