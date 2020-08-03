@@ -20,6 +20,7 @@ import './App.css';
 // import SForm from './components/SForm'
 // import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
+import ReduxT from './components/ReduxT'
 // import RouteSample from './components/RouteSample'
 
 
@@ -109,6 +110,7 @@ class App extends React.Component {
         {/* <Provider store={store}>
           <ReduxTest></ReduxTest>
         </Provider> */}
+        <ReduxT></ReduxT>
 
         {/* router */}
         {/* <RouteSample></RouteSample> */}
