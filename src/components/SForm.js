@@ -87,6 +87,8 @@ function SFormCreate (Comp) {
 
 @SFormCreate
 class SForm extends React.Component {
+  
+  // 登录按钮提交
   onSubmit  = () => {
     // 校验所有项
     this.props.validate((isValid, data) => {
