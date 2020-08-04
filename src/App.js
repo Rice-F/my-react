@@ -1,8 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-// import store from './store'
-// import {Provider} from 'react-redux'
+import store from './store'
+import {Provider} from 'react-redux'
 
 // 组件导入
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
@@ -110,7 +110,9 @@ class App extends React.Component {
         {/* <Provider store={store}>
           <ReduxTest></ReduxTest>
         </Provider> */}
-        <ReduxT></ReduxT>
+        <Provider store={store}>
+          <ReduxT></ReduxT>
+        </Provider>
 
         {/* router */}
         {/* <RouteSample></RouteSample> */}
