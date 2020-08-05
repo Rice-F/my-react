@@ -1,8 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import store from './store'
-import {Provider} from 'react-redux'
+// import store from './store'
+// import {Provider} from 'react-redux'
 
 // 组件导入
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
@@ -20,8 +20,8 @@ import {Provider} from 'react-redux'
 // import SForm from './components/SForm'
 // import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
-import ReduxT from './components/ReduxT'
-// import RouteSample from './components/RouteSample'
+// import ReduxT from './components/ReduxT'
+import RouteSample from './components/RouteSample'
 
 
  
@@ -110,12 +110,12 @@ class App extends React.Component {
         {/* <Provider store={store}>
           <ReduxTest></ReduxTest>
         </Provider> */}
-        <Provider store={store}>
+        {/* <Provider store={store}>
           <ReduxT></ReduxT>
-        </Provider>
+        </Provider> */}
 
         {/* router */}
-        {/* <RouteSample></RouteSample> */}
+        <RouteSample></RouteSample>
       </div>
     );
   }
