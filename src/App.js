@@ -21,7 +21,8 @@ import './App.css';
 // import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
 // import ReduxT from './components/ReduxT'
-import RouteSample from './components/RouteSample'
+// import RouteSample from './components/RouteSample'
+import RouteS from './components/RouteS' 
 
 
  
@@ -115,7 +116,8 @@ class App extends React.Component {
         </Provider> */}
 
         {/* router */}
-        <RouteSample></RouteSample>
+        {/* <RouteSample></RouteSample> */}
+        <RouteS></RouteS>
       </div>
     );
   }
