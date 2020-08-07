@@ -76,6 +76,7 @@ const PrivateRoute = connect(
 
 // 登录组件
 const Login = connect(
+  // 映射状态与dispatch方法
   state => ({
     isLogin: state.user.isLogin,
     loading: state.user.loading
