@@ -3,7 +3,7 @@ import React from 'react';
 export class Lifecycle extends React.Component {
   constructor (props) {
     super(props)
-    // 常用于初始化
+    // 常用于状态初始化
     console.log('1. 组件构造函数');
   }
 
@@ -12,7 +12,7 @@ export class Lifecycle extends React.Component {
     console.log('2. 组件即将挂载');
   }
 
-  // 可进行状态更新
+  // 可进行状态更新，其实这里进行api调用更合理
   componentDidMount () {
     console.log('3. 组件完成挂载');
   }

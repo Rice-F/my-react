@@ -34,12 +34,16 @@ export class CartSample extends React.Component{
 
   // 添加至购物车
   addCart = good => {
+    // 创建新购物车
     const newCart = [...this.state.cart]
+    // 查找当前选中项是否已存在在购物车
     const idx = newCart.findIndex(c => c.id === good.id)
     const item = newCart[idx]
     if(item) {
+      // 当前选中项已存在在购物车，购物车中的当前项数量+1
       newCart.splice(idx, 1, {...item, count: item.count + 1})
     }else {
+      // 购物车新增一项
       newCart.push({...good, count: 1})
     }
     this.setState({cart: newCart})
@@ -92,6 +96,7 @@ export class CartSample extends React.Component{
 
         {/* 购物车 */}
         {/* 和Vue不同的是，react中子组件尽可能的只做数据展示，不做数据管理及事件操作，有需要事件操作的通知父组件进行操作 */}
+        {/* 子组件需要执行的方法，在父组件中以属性的形式传过去 */}
         <Cart data={this.state.cart} minus={this.minus} add={this.add}></Cart>
       </div>
     )

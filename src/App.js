@@ -9,8 +9,8 @@ import './App.css';
 // import {Welcome1, Welcome2}  from './components/CompType'
 // import {Clock} from './components/Clock'
 // import {StateTest} from './components/StateTest' 
-import {CartSample} from './components/CartSample'
-// import {Lifecycle} from './components/Lifecycle'
+// import {CartSample} from './components/CartSample'
+import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
@@ -23,9 +23,10 @@ import {CartSample} from './components/CartSample'
 
 
  
-function formatName (user) {
-  return `${user.firstName},${user.lastName}`
-}
+// function formatName (user) {
+//   return `${user.firstName},${user.lastName}`
+// }
+
 class App extends React.Component {
 
   constructor (props) {
@@ -75,10 +76,10 @@ class App extends React.Component {
         {/* <StateTest></StateTest> */}
   
         {/* 条件渲染 */}
-        <CartSample title="this is cartsample title"></CartSample>
+        {/* <CartSample title="this is cartsample title"></CartSample> */}
   
         {/* 生命周期 */}
-        {/* {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>} */}
+        {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>}
 
         {/* Antd */}
         {/* <AntdTest></AntdTest> */}
