@@ -34,6 +34,8 @@ function Child2 () {
 
 // 跨组件通信3：class指定静态contextType
 class Child3 extends React.Component {
+  // 声明一个静态属性
+  // 通过固定变量名this.context获取
   static contextType = MyContext
   render () {
     return (
@@ -52,7 +54,7 @@ export default function ContextTest () {
             <Child1></Child1>
           </Parent>
         </GrandParent> */}
-
+ 
         {/* 跨组件通信方法1 */}
         <Consumer>
           {val => <Child1 {...val}></Child1>}

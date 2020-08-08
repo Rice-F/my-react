@@ -1,11 +1,9 @@
 import React from 'react';
-import {BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
-import {connect} from 'react-redux';
-import {login} from '../store/user.redux'
+import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom'
 
 function Home() {
   return <div>
-    <h5>lessons</h5>
+    <h5>Home</h5>
     <ul>
       <li><Link to="/detail/web">web</Link></li>
       <li><Link to="/detail/ios">ios</Link></li>
@@ -17,7 +15,7 @@ function Home() {
 function About () {
   return (
     <div>
-      <h5>个人中心</h5>
+      <h5>About</h5>
       <div>
         <Link to="/about/me">个人信息</Link>
         <Link to="/about/order">订单信息</Link>
@@ -52,76 +50,58 @@ function NoMatch ({location}) {
   )
 }
 
-// 路由守卫
-const PrivateRoute = connect(
-  state => ({isLogin: state.user.isLogin})
-)(
-  ({component: Comp, isLogin, ...rest}) => {
-    return (
-      // render 根据条件动态渲染组件
-      <Route
-        {...rest}
-        render={
-          props => isLogin ? 
-          (<Comp></Comp>) : 
-          (<Redirect
-            to={{pathname: "/login", state: {redirect: props.location.pathname}}}
-          ></Redirect>)
-        }
-      >
-      </Route>
-    )
-  }
-)
+// 保留路由组件所需的参数component、以及其他参数例如pth等，同时传一个登录状态isLogin
+function PrivateRoute ({component: Comp, isLogin, ...rest}) {
+  return (
+    // render函数 根据条件动态渲染组件
+    // 未登录则重定向至登录页
+    // 登录路由也配置了一个redirect，这样在设计登录组件的时候当登录成功即重定向跳转至登录前访问的页面
+    <Route
+      {...rest}
+      render = {
+        props => isLogin ? (<Comp></Comp>) : (<Redirect
+          to={{pathname: "/login", state: {redirect: props.location.pathname}}}
+        ></Redirect>)
+      }
+    ></Route>
+  )
+}
 
-// 登录组件
-const Login = connect(
-  // 映射状态与dispatch方法
-  state => ({
-    isLogin: state.user.isLogin,
-    loading: state.user.loading
-  }),
-  {login}
-)(
-  ({location, isLogin, login, loading}) => {
-    const redirect = location.state.redirect || '/'
-    if(isLogin) {
-      return <Redirect to={redirect}></Redirect>
-    }
-    return (
-      <div>
-        <p>用户登录</p>
-        <hr/>
-        <button onClick={login} disabled={loading}>
-          {loading ? 'login...' : 'login'}
-        </button>
-      </div>
-    )
+// 从路由参数拿到重定向地址，从redux获取登录状态和登录方法
+function Login ({location, isLogin, login}) {
+  const redirect = location.state.redirect || '/'
+  if(isLogin) {
+    return <Redirect to={redirect}></Redirect>
   }
-)
+  return (
+    <div>
+      <p>用户登录</p>
+      <hr/>
+      <button onClick={login}>login</button>
+    </div>
+  )
+}
 
 export default function RouteSample () {
   return (
     <div>
       <BrowserRouter>
         <div>
+
           {/* 导航链接 */}
           <div><Link to="/">首页</Link></div>
           <div><Link to="/about">关于</Link></div>
-          {/* 配置 */}
-          {/* 路由匹配默认包容性质 下面的例子中 当匹配/时也会同时包容/about、/detail/:lesson */}
-          {/* 使用exact配置项或者Switch组件，都可以避免展示包容式路由 */}
+
+          {/* 路由配置：路由就是组件 */}
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            {/* 路由守卫 */}
             <PrivateRoute path="/about" component={About}></PrivateRoute>
-            {/* <Route path="/about" component={About}></Route> */}
             <Route path="/detail/:lesson" component={Detail}></Route>
             <Route path="/login" component={Login}></Route>
-            {/* 404页面没有path */}
+            {/* 404页面没有path 当有path的路由都不匹配时那必然匹配404*/}
             <Route component={NoMatch}></Route>
           </Switch>
-        </div>
+        </div>   
       </BrowserRouter>
     </div>
   )

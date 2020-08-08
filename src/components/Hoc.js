@@ -25,14 +25,34 @@ const withLog = Comp => {
   return props => <Comp {...props}></Comp>
 }
 
+// const extendLesson = Comp => {
+//   // 这里可以理解为通过api调用获取name属性
+//   let name = 'hoc'
+//   // 传递新属性name的同时，不要忘记带上组件由上级传递的属性
+//   return props => <Comp {...props} name={name}></Comp>
+// }
 
-@withLog
-@hocComponent
-@withLog
+const extendLesson = Comp => {
+  let name = 'hoc'
+  return class newComp extends React.Component {
+    componentDidMount () {
+      console.log('newComp componentDidMount')
+    }
+    render () {
+      return <Comp {...this.props} name={name}></Comp>
+    }
+  }
+}
+
+
+// @withLog
+// @hocComponent
+// @withLog
 class Lesson extends React.Component{
   render () {
     return (
       <div>
+        {/* name需要异步调用获取 */}
         {this.props.stage} - {this.props.name}
       </div>
     )
@@ -42,12 +62,14 @@ class Lesson extends React.Component{
 // 高阶组件链式调用
 // const NewLesson = withLog(hocComponent(withLog(Lesson)));
 
+const NewLesson = withLog(extendLesson(withLog(Lesson)))
+
 export class Hoc extends React.Component {
   render () {
     return (
       <div>
-        {/* <NewLesson stage="React"></NewLesson> */}
-        <Lesson stage="React"></Lesson>
+        <NewLesson stage="React"></NewLesson>
+        {/* <Lesson stage="React"></Lesson> */}
       </div>
     )
   }

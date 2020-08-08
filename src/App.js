@@ -1,8 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-// import store from './store'
-// import {Provider} from 'react-redux'
+import store from './store/index'
+import {Provider} from 'react-redux'
 
 // 组件导入
 // import导入组件时，export组件使用 import {Hoc} 引入，export default组件使用 import Composition 引入
@@ -10,16 +10,19 @@ import './App.css';
 // import {Clock} from './components/Clock'
 // import {StateTest} from './components/StateTest' 
 // import {CartSample} from './components/CartSample'
-import {Lifecycle} from './components/Lifecycle'
+// import {Lifecycle} from './components/Lifecycle'
 // import {AntdTest} from './components/AntdTest'
 // import {CommentList} from './components/CommentList'
 // import {Hoc} from './components/Hoc'
 // import Composition from './components/Composition'
-// import HocTest from './components/HocTest'
+// import HookTest from './components/HookTest'
 // import ContextTest from './components/ContextTest'
 // import SForm from './components/SForm'
+// import CopyAntdForm from './components/CopyAntdForm' 
 // import ReduxTest from './components/ReduxTest'
-// import RouteSample from './components/RouteSample'
+// import ReduxT from './components/ReduxT'
+import RouteSample from './components/RouteSample'
+// import RouteS from './components/RouteS' 
 
 
  
@@ -79,13 +82,14 @@ class App extends React.Component {
         {/* <CartSample title="this is cartsample title"></CartSample> */}
   
         {/* 生命周期 */}
-        {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>}
+        {/* {this.state.lifeProp && <Lifecycle lifeProp={this.state.lifeProp}></Lifecycle>} */}
 
         {/* Antd */}
         {/* <AntdTest></AntdTest> */}
 
         {/* 容器组件 */}
         {/* <CommentList title={this.state.lifeProp}></CommentList> */}
+        {/* <CommentList></CommentList> */}
 
         {/* 高阶组件 */}
         {/* <Hoc></Hoc> */}
@@ -94,22 +98,30 @@ class App extends React.Component {
         {/* <Composition></Composition> */}
 
         {/* 函数组件Hook */}
-        {/* <HocTest></HocTest> */}
+        {/* <HookTest></HookTest> */}
 
         {/* Context */}
         {/* <ContextTest></ContextTest> */}
 
         {/* SForm */}
         {/* <SForm></SForm> */}
+        {/* <CopyAntdForm></CopyAntdForm> */}
 
         {/* Redux */}
         {/* 上下文的形式隔代传递数据 */}
         {/* <Provider store={store}>
           <ReduxTest></ReduxTest>
         </Provider> */}
+        {/* <Provider store={store}>
+          <ReduxT></ReduxT>
+        </Provider> */}
 
         {/* router */}
-        {/* <RouteSample></RouteSample> */}
+        <Provider store={store}>
+          <RouteSample></RouteSample>
+        </Provider>
+        
+        {/* <RouteS></RouteS> */}
       </div>
     );
   }
